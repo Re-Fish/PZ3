@@ -11,6 +11,41 @@
 <body>
     <script>
         "use strict";
+        /*
+        Перед вами находится массив с продуктами, сегодня распродажа и вам нужно на каждый
+        товар применить скидку 15%, можете использовать метод forEach:
+        */
+        const products = [
+            {
+                id: 3,
+                price: 200,
+            },
+            {
+                id: 4,
+                price: 900,
+            },
+            {
+                id: 1,
+                price: 1000,
+            },
+        ];
+        const productsSale = [];
+
+        let makeDiscount = (discount) => {
+            products.forEach(product => {
+                let originalPrice = product.price;
+                let discountedPrice = originalPrice - (originalPrice * discount) / 100;
+
+                productsSale.push({
+                    id: product.id,
+                    price: discountedPrice,
+                });
+            });
+        };
+
+        console.log(products);      //Выводим первоначальный массив
+        makeDiscount(15);           //Применяем скидку
+        console.log(productsSale);  //Выводим новый массив с учетом скидки
     </script>
 </body>
 
